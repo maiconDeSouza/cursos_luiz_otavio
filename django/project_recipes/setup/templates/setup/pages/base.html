@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-{% include "setup/partials/head.html" %}
+<head>
+    {% include "setup/partials/head.html" %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
 <body>
-    {% include "setup/partials/header.html" %}
-    <main>
+    <header>
         <div class="container">
-            <form action="" class="search">
-                <input type="text">
-                <button type="submit" title="buscar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
+            <nav>
+                <h1>
+                    <a href="#" title="logo">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span>Recipes</span>
+                    </a>
+                </h1>
+            </nav>
         </div>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock content %}
     </main>
+    <footer>
+        <span>By Mcn</span>
+        <span>Powered by Django</span>
+    </footer>
 </body>
 </html>

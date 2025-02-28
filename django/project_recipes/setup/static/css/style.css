@@ -1,3 +1,4 @@
+/* config - project */
 :root {
     --color-primary: #269fe6;
     --color-primary-hover: #2086c2;
@@ -38,22 +39,24 @@
     --font-primary: sans-serif;
     --font-headings: 'Roboto Slab', serif;
 
-    --spacing-gutter-medium: 3rem;
-    --spacing-gutter-large: 4rem;
+    --transition-all: all .6s;
+
+    --default-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
+
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
+
     text-decoration: none;
+    list-style: none;
 }
-html {
-    font-size: 62.5%;
-}
+
 body {
-    font-size: 1.6rem;
     font-family: var(--font-primary);
     background-color: var(--color-gray-1);
+    color: var(--color-dark-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -61,44 +64,234 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-    max-width: 120rem;
+    max-width: 71.25rem;
     margin: 0 auto;
+    padding: 1rem;
 }
 
-.main-header {
+/* config - project - end */
+
+
+/* hearder */
+header {
     background-color: var(--color-primary-dark);
 }
 
-.main-header .main-header-div h1 {
+header .container nav h1 {
+    display: grid;
+    place-items: center;
+}
+
+header .container nav h1 a {
+    padding: 2rem;
+    color: var(--color-white);
+}
+
+/* header - end */
+
+
+/* main - search */
+main section.search {
+    margin-top: 2rem;
+}
+
+main section.search form {
     display: flex;
-    flex-flow: row nowrap;
     justify-content: center;
+}
+
+main section.search form div.search {
+    width: 37.5rem;
+    padding: 1rem;
+    border: 2px solid var(--color-primary-dark);
+    border-radius: 7px;
+
+    display:  flex;
     align-items: center;
-    padding: var(--spacing-gutter-medium);
+    gap: 1rem;
+
+    box-shadow: var(--default-box-shadow);
+    transition: var(--transition-all);
 }
 
-.main-header .main-header-div h1 i {
-    margin-right: 1rem;
-}
-
-.main-header .main-header-div h1 .main-logo {
-    color: var(--color-white)
-}
-
-main .container {
-    background-color: red;
-    display: flex;
-    justify-content: center;
-}
-
-main .container form.search {
-    max-width: 90%;
+main section.search form div.search:focus-within {
     background-color: var(--color-white);
+    border-color: var(--color-primary);
 }
 
-main .container form.search input, 
-main .container form.search button {
+main section.search form div.search input {
+    flex: 1;
+}
+
+main section.search form div.search input, 
+main section.search form div.search button {
     border: none;
     outline: none;
     background-color: transparent;
+}
+
+main section.search form div.search button {
+    cursor: pointer;
+    transition: var(--transition-all);
+}
+
+main section.search form div.search:focus-within button {
+    color: var(--color-primary);
+}
+
+/*  main - search - end */
+
+
+/* main - grid-cards  */
+/* main .grid-cards {
+    
+} */
+
+main .grid-cards ul.ul-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(21.25rem, 1fr));
+    gap: 1rem;
+}
+
+
+main .grid-cards ul.ul-cards li.li-cards {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border-radius: 7px;
+    transition: var(--transition-all);
+}
+
+main .grid-cards ul.ul-cards li.li-cards:hover {
+    transform: scale(1.05);
+    box-shadow: var(--default-box-shadow);
+}
+
+
+main .grid-cards ul.ul-cards li.li-cards header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+main .grid-cards ul.ul-cards li.li-cards header {
+    background-color: var(--color-white);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+main .grid-cards ul.ul-cards li.li-cards main article {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+main .grid-cards ul.ul-cards li.li-cards main article h2 {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+main .grid-cards ul.ul-cards li.li-cards main article ul {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+main .grid-cards ul.ul-cards li.li-cards main article ul li i {
+    font-size: .8rem;
+}
+
+main .grid-cards ul.ul-cards li.li-cards main article ul li span, 
+main .grid-cards ul.ul-cards li.li-cards main article ul li a {
+    font-size: .7rem;
+    color: var(--color-dark-text);
+    transition: var(--transition-all);
+}
+
+main .grid-cards ul.ul-cards li.li-cards main article ul li a:hover {
+    color: var(--color-primary);
+}
+
+div.duration {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+    background-color: var(--color-gray-2);
+}
+
+div.duration div.item-duration {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    align-items: center;
+}
+
+div.duration div.item-duration div {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+main .grid-cards ul.ul-cards li.li-cards footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem;
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+}
+
+
+
+/* main - grid-cards - end */
+
+/* main - recipes */
+main .recipe header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: transparent;
+}
+
+main .recipe header h1 {
+    font-size: 5.5rem;
+    line-height: 5rem;
+}
+
+main .recipe main .img {
+    margin-top: 2rem;
+}
+
+main .recipe main .img, main .recipe main .img img {
+    border-radius: 7px;
+}
+
+main .recipe main .content {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+main .recipe main .content div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+main .recipe main .content div h2 {
+    font-size: 3.5rem;
+}
+
+/* footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
 }
