@@ -182,6 +182,10 @@ main .grid-cards ul.ul-cards li.li-cards header {
     border-top-right-radius: 7px;
 }
 
+main .grid-cards ul.ul-cards li.li-cards main {
+    flex: 1;
+}
+
 main .grid-cards ul.ul-cards li.li-cards main article {
     display: flex;
     flex-direction: column;
@@ -242,6 +246,9 @@ main .grid-cards ul.ul-cards li.li-cards footer {
     gap: .5rem;
     padding: 1rem;
     background-color: var(--color-primary-dark);
+}
+
+main .grid-cards ul.ul-cards li.li-cards footer a {
     color: var(--color-white);
 }
 

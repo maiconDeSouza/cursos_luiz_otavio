@@ -1,26 +1,26 @@
 <li class="li-cards">
     <header class="card-header">
-        <img src="https://placehold.co/1280x720" alt="imagem" width="100%">
+        <img src="{{recipe.cover.url}}" alt="{{recipe.title}}" width="100%">
     </header>
     <main>
         <article>
-            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h2>{{recipe.title}}</h2>
             <ul>
                 <li>
                     <i class="fa-solid fa-user"></i>
-                    <span>Luiz Otávio</span>
+                    <span>{{recipe.author}}</span>
                 </li>
                 <li>
                     <i class="fa-solid fa-calendar"></i>
-                    <span>16/01/2021 às 11:21</span>
+                    <span>{{recipe.created_at}}</span>
                 </li>
                 <li>
                     <i class="fa-solid fa-utensils"></i>
-                    <a href="#"><strong>Café da manhã</strong></a>
+                    <a href="{% url "category" recipe.category.name %}"><strong>{{recipe.category.name}}</strong></a>
                 </li>
             </ul>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, magnam.
+                {{recipe.description}}
             </p>
         </article>
     </main>
@@ -30,18 +30,20 @@
                 <i class="fa-solid fa-clock"></i>
                 <strong>Tempo</strong>
             </div>
-            <span>0 Minutos</span>
+            <span>{{recipe.preparation_time}} {{recipe.preparation_time_unit}}</span>
         </div>
         <div class="item-duration">
             <div>
                 <i class="fa-solid fa-pizza-slice"></i>
                 <strong>Porções</strong>
             </div>
-            <span>0 Porções</span>
+            <span>{{recipe.servings}} {{recipe.servings_unit}}</span>
         </div>
     </div>
     <footer>
-        <i class="fa-solid fa-eye"></i>
-        <span>Ver mais...</span>
+        <a href="{% url "recipe" recipe.slug %}">
+            <i class="fa-solid fa-eye"></i>
+            <span>Ver mais...</span>
+        </a>
     </footer>
 </li>
